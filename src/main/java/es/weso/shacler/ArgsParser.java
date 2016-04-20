@@ -68,7 +68,7 @@ public class ArgsParser {
 			}
 
 			if (cmd.hasOption("d")) {
-				schema = cmd.getOptionValue("d");
+				data = cmd.getOptionValue("d");
 			}
 
 			if (cmd.hasOption("p")) {

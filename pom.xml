@@ -45,11 +45,13 @@
 					<configuration>
 						<archive>
 							<manifest>
+								<addClasspath>true</addClasspath>
+								<classpathPrefix>lib/</classpathPrefix>
 								<mainClass>es.weso.shacler.Main</mainClass>
 							</manifest>
 						</archive>
 						<outputDirectory>./target</outputDirectory>
-						<finalName>shacleRunner</finalName>
+						<finalName>shacl</finalName>
 						<descriptorRefs>
 							<descriptorRef>jar-with-dependencies</descriptorRef>
 						</descriptorRefs>
@@ -110,6 +112,7 @@
 			<version>0.6.2.201302030002</version>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>shacl</groupId>
 			<artifactId>org.topbraid</artifactId>
