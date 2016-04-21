@@ -20,7 +20,6 @@ public class Main {
 
 	public static void main(String... args) {
 		
-		System.out.println("Shacl...");
 		Logger log = Logger.getLogger(Main.class.getName());
 		try {
 			Instant start = Instant.now();
@@ -33,8 +32,11 @@ public class Main {
 				ShaclValidator validator = new ShaclValidator();
 				log.info("Data: " + options.data + ". Schema: " + options.schema);
 				Model result = validator.validate(options.data,options.schema);
-				System.out.println("End of validation");
-				result.write(System.out,"TURTLE");
+				if (result.size() == 0) 
+					System.out.println("Valid");
+				else {
+					result.write(System.out,"TURTLE");
+				}
 				break;
 			}
 			

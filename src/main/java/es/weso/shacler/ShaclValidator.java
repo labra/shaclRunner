@@ -3,7 +3,9 @@ package es.weso.shacler;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.UUID;
+import java.util.logging.Logger;
 
+import org.apache.jena.atlas.logging.Log;
 import org.apache.jena.riot.RDFDataMgr;
 import org.topbraid.shacl.arq.SHACLFunctions;
 import org.topbraid.shacl.constraints.ModelConstraintValidator;
@@ -20,6 +22,8 @@ import com.hp.hpl.jena.util.FileUtils;
 
 public class ShaclValidator {
 	
+	Logger log = Logger.getLogger(ShaclValidator.class.getName());
+
 	public Model validate(Model dataModel, Model shapesModel) throws Exception {
 		Model shaclModel = ModelFactory.createDefaultModel();
 		InputStream is = getClass().getResourceAsStream("/etc/shacl.ttl");
@@ -42,7 +46,9 @@ public class ShaclValidator {
 	}
 
 	public Model validate(String dataFile, String schemaFile) throws Exception {
+		log.info("Reading data file " + dataFile);
 		Model dataModel =  RDFDataMgr.loadModel(dataFile);
+		log.info("Reading shapes file " + schemaFile);
 		Model shapesModel = RDFDataMgr.loadModel(schemaFile);
 		return validate(dataModel,shapesModel);
 	}

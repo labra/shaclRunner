@@ -3,11 +3,18 @@
 @prefix : <http://example.org/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-:Item sh:scopeNode :x1, :x2 .
+:Item sh:scopeNode :ok1, :bad1, :bad2, :bad3 .
 
-:x1 rdfs:label "Pepe";
+:ok1 rdfs:label "Pepe";
     :code 23 .
 	
-:x2 rdfs:lable 234; 
-    :code 23 .
+:bad1 rdfs:lable 234; 
+      :code 23 .
+
+:bad2 rdfs:label "Pepe"; 
+      :code "blah" .
+      
+:bad3 rdfs:label "Pepe", "Luis"; 
+      :code 2, 3 .
+      
 

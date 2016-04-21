@@ -1,0 +1,20 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix ex: <http://example.org/> .
+
+ex:Person 
+  sh:scopeNode ex:good1, ex:good2, ex:bad1 .
+  
+ex:NotPerson
+  sh:scopeNode ex:good1 .
+
+ex:good1 ex:name "John Smith" . 
+ex:good2 ex:firstname "John";
+         ex:lastname "Smith" .
+
+ex:bad1 ex:firstname "John" . 
+
+      

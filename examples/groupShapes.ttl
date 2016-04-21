@@ -1,0 +1,44 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix ex: <http://example.org/> .
+
+ex:NotPerson
+	a sh:Shape ;
+	sh:constraint [
+		sh:not ex:PersonShape
+	] .
+
+ex:Person
+	a sh:Shape ;
+	sh:constraint [
+		a sh:NodeConstraint ;
+		sh:valueShape [
+			sh:constraint [
+				a sh:OrConstraint ;
+				sh:shapes (
+					[
+						sh:property [
+							sh:predicate ex:name ;
+							sh:datatype xsd:string ;
+						]
+					]
+					[
+						sh:property [
+							sh:predicate ex:firstname ;
+							sh:minCount 1 ;
+							sh:datatype xsd:string ;
+						] ;
+						sh:property [
+							sh:predicate ex:lastname ;
+							sh:datatype xsd:string ;
+						]
+					]
+				)
+			]
+		] ;
+		sh:maxCount 1 ;
+	] ;
+.
