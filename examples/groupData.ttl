@@ -6,7 +6,10 @@
 @prefix ex: <http://example.org/> .
 
 ex:Person 
-  sh:scopeNode ex:good1, ex:good2, ex:bad1 .
+  sh:scopeNode 
+    ex:good1, 
+	ex:good2, 
+	ex:bad1 .
   
 ex:NotPerson
   sh:scopeNode ex:good1 .

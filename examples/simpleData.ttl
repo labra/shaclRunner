@@ -3,7 +3,7 @@
 @prefix : <http://example.org/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-:Item sh:scopeNode :ok1, :bad1, :bad2, :bad3 .
+:Item sh:targetNode :ok1, :bad1, :bad2, :bad3 .
 
 :ok1 rdfs:label "Pepe";
     :code 23 .
